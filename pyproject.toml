@@ -7,7 +7,7 @@ name = "fomo-code"
 version = "0.1.0"
 description = "FOMO25 Challenge Codebase - Foundation Models for Brain MRI Analysis"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.10,<3.13"
 license = {text = "MIT"}
 authors = [
     {name = "Asbjørn Munk"},
@@ -20,7 +20,7 @@ dependencies = [
     "yucca==2.2.6",
     "opencv-python>=4.8.1.78",
     "einops>=0.7",
-    "torch<2.3.0",
+    "torch>=2.0.0,<2.3.0",
     "nnunetv2>=2.4.2",
     "wandb>=0.16.0",
     "opencv-python>=4.8.0",
@@ -45,4 +45,4 @@ testpaths = ["tests"]
 
 [tool.black]
 line-length = 88
-target-version = ["py39"]
+target-version = ["py311"]
