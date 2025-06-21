@@ -21,6 +21,9 @@ from data.pretrain_split import get_pretrain_split_config
 from yucca.pipeline.configuration.configure_paths import detect_version
 from utils.utils import setup_seed, SimplePathConfig
 
+torch.set_float32_matmul_precision('medium') # 
+torch.backends.cudnn.benchmark = True 
+
 
 def main():
     warnings.filterwarnings("ignore")
@@ -226,13 +229,15 @@ def main():
 
     # Initialize wandb logging
     wandb.init(
-        project="fomo-pretraining",
+        entity="pedro-macias-gordaliza-cibm-center-for-biomedical-imaging",
+        project="fomo-pretrain_optim",
         name=f"{config['experiment']}_version_{config['version']}",
     )
 
     # Create wandb logger for Lightning
     wandb_logger = L.pytorch.loggers.WandbLogger(
-        project="fomo-pretraining",
+        entity="pedro-macias-gordaliza-cibm-center-for-biomedical-imaging",
+        project="fomo-pretrain_optim",
         name=f"{config['experiment']}_version_{config['version']}",
         log_model=True,
     )
